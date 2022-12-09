@@ -30,6 +30,7 @@ void setup()
   display.display();
   delay(2000);
   display.clearDisplay();
+  pinMode(LED_BUILTIN, OUTPUT);
 }
  
 void loop() 
@@ -52,15 +53,21 @@ void loop()
       display.println("Alacsony");
       display.println("A P'ra");
       display.println("Tartalom");
+      digitalWrite(LED_BUILTIN, HIGH);
+      delay(300);         
   } else if (humidity >= 50){
       display.println("Kapcsolja be");
       display.println("a pa'ra");
       display.println("g'pet");
+      digitalWrite(LED_BUILTIN, HIGH); 
+      delay(300);         
   } else {
       display.println("");
       display.println("Temperature:");
       display.print(temperature, 1);
       display.print("C");    
+      digitalWrite(LED_BUILTIN, LOW); 
+      delay(1000);                    
   }
 
   display.display();
